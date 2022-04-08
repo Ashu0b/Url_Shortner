@@ -68,9 +68,7 @@ const shortUrlFun=async (req,res)=>{
         if(!urlCode){
             return res.status(400).send({status:false,message:"please provide urlcode url "})
         }
-        // if(!shortUrl){
-        //     return res.status(400).send({status:false,message:"please provide short url "})
-        // }
+     
        
             let obj={longUrl,shortUrl,urlCode}
             let saveData=await UrlModel.create(obj)
