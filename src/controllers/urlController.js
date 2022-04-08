@@ -110,7 +110,7 @@ const getShortUrl= async (req,res)=>{
             return res.status(404).send({status:false,message:"not found"})
         }
         res.status(302).redirect(urlData.longUrl)
-        // res.status(200).send({status:true,message:"successfull data",data:urlData})
+        
     }
     }catch(err){
         res.status(500).send({status:false,message:err.message})
