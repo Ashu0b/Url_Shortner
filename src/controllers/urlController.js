@@ -9,11 +9,11 @@ const { promisify } = require("util");
 
 //Connect to redis
 const redisClient = redis.createClient(
-  14646,
-  "redis-14646.c212.ap-south-1-1.ec2.cloud.redislabs.com",
+    19296,
+  "redis-19296.c15.us-east-1-4.ec2.cloud.redislabs.com",
   { no_ready_check: true }
 );
-redisClient.auth("aNuaBnKDY5KPy2oyB36j7G7mnmcrJoLj", function (err) {
+redisClient.auth("omzcUy7OOD6V5hhkhxFKuae3Gd7942CN", function (err) {
   if (err) throw err;
 });
 
@@ -53,14 +53,14 @@ const shortUrlFun=async (req,res)=>{
         if(!validUrl.isUri(longUrl.trim())){
             return res.status(400).send({status:false,message:"please valid long url"})
         }
-
+        const urlCode=shortid.generate(longUrl)
         //checking whether longurl already exists or not
         const uniqueShortUrl=await UrlModel.findOne({longUrl:longUrl}).select({createdAt:0,updatedAt:0,__v:0,_id:0});
         if(uniqueShortUrl){
-            return res.status(200).send({status:true,message:"please shorturl is already exists",data:uniqueShortUrl})
+            return res.status(200).send({status:truef,data:uniqueShortUrl})
         }
 
-        const urlCode=shortid.generate(longUrl)
+        
         const shortUrl=baseUrl+"/"+urlCode.toLowerCase()
         console.log(urlCode)
 

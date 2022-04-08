@@ -1,5 +1,5 @@
 {
-  "name": "Url_Shortner",
+  "name": "url-shorten",
   "version": "1.0.0",
   "description": "For example, if we shorten the following URL through TinyURL:",
   "main": "index.js",
